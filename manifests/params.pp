@@ -1,4 +1,4 @@
-#class sudo::params 
+#class sudo::params
 #Set the paramters for the sudo module
 class sudo::params {
   $source_base = "puppet:///modules/${module_name}/"
@@ -86,12 +86,12 @@ class sudo::params {
               $config_file_group = 'root'
             }
             '5.10': {
-              $package = 'TCMsudo'
+              $package = 'CSWsudo'
               $package_ensure = 'present'
-              $package_source = 'http://www.sudo.ws/sudo/dist/packages/Solaris/10/TCMsudo-1.8.9p5-i386.pkg.gz'
-              $package_admin_file = '/var/sadm/install/admin/puppet'
-              $config_file = '/etc/sudoers'
-              $config_dir = '/etc/sudoers.d/'
+              $package_source = ''
+              $package_admin_file = ''
+              $config_file = '/etc/opt/csw/sudoers'
+              $config_dir = '/etc/opt/csw/sudoers.d/'
               $source = "${source_base}sudoers.solaris"
               $config_file_group = 'root'
             }
