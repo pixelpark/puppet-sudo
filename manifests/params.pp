@@ -92,7 +92,7 @@ class sudo::params {
               $package_admin_file = ''
               $config_file = '/etc/opt/csw/sudoers'
               $config_dir = '/etc/opt/csw/sudoers.d/'
-              $source = "${source_base}sudoers.solaris"
+              $source = "${source_base}sudoers.solaris10"
               $config_file_group = 'root'
             }
             default: {
