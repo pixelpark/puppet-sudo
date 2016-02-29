@@ -10,14 +10,10 @@ class sudo::params {
           $source = "${source_base}sudoers.ubuntu"
         }
         default: {
-
-          case $::lsbdistcodename {
-            'wheezy': {
-              $source = "${source_base}sudoers.wheezy"
-            }
-            default: {
-              $source = "${source_base}sudoers.deb"
-            }
+          if (0 + $::operatingsystemmajrelease >= 7) {
+            $source = "${source_base}sudoers.debian"
+          } else {
+            $source = "${source_base}sudoers.olddebian"
           }
         }
       }
@@ -112,6 +108,16 @@ class sudo::params {
       $source = "${source_base}sudoers.freebsd"
       $config_file_group = 'wheel'
     }
+    openbsd: {
+      $package = undef
+      $package_ensure = 'present'
+      $package_source = ''
+      $package_admin_file = ''
+      $config_file = '/etc/sudoers'
+      $config_dir = '/etc/sudoers.d/'
+      $source = "${source_base}sudoers.openbsd"
+      $config_file_group = 'wheel'
+    }
     aix: {
       $package = 'sudo'
       $package_ensure = 'present'
@@ -129,7 +135,7 @@ class sudo::params {
           $package_ensure = 'present'
           $config_file = '/etc/sudoers'
           $config_dir = '/etc/sudoers.d/'
-          $source = "${source_base}sudoers.deb"
+          $source = "${source_base}sudoers.gentoo"
           $config_file_group = 'root'
         }
         archlinux: {
