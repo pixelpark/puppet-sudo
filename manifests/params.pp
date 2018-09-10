@@ -116,7 +116,7 @@ class sudo::params {
               $package_admin_file = '/var/sadm/install/admin/puppet'
               $config_file = '/etc/sudoers'
               $config_dir = '/etc/sudoers.d'
-              $content = "${content_base}sudoers.solaris.erb"
+              $content = "${content_base}sudoers.solaris10.erb"
               $config_file_group = 'root'
               $config_dir_keepme = false
             }
