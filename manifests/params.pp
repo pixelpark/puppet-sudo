@@ -109,13 +109,13 @@ class sudo::params {
               $config_dir_keepme = false
             }
             '5.10': {
-              $package = 'TCMsudo'
+              $package = 'CSWsudo'
               $package_ldap = undef
               $package_ensure = 'present'
-              $package_source = "http://www.sudo.ws/sudo/dist/packages/Solaris/10/TCMsudo-1.8.9p5-${::hardwareisa}.pkg.gz"
-              $package_admin_file = '/var/sadm/install/admin/puppet'
-              $config_file = '/etc/sudoers'
-              $config_dir = '/etc/sudoers.d'
+              $package_source = undef
+              $package_admin_file = undef
+              $config_file = '/etc/opt/csw/sudoers'
+              $config_dir = '/etc/opt/csw/sudoers.d/'
               $content = "${content_base}sudoers.solaris10.erb"
               $config_file_group = 'root'
               $config_dir_keepme = false
